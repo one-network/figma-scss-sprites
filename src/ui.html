@@ -1,0 +1,6 @@
+<textarea readonly id="output" style="padding: 12px; background-color: rgba(50,50,50, 1); color: #fff; width: 100%; height: 100%;"></textarea>
+<script>
+  onmessage = (event) => {
+    document.getElementById('output').innerHTML = event.data.pluginMessage;
+  }
+</script>
