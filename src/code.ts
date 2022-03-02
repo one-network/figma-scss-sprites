@@ -31,8 +31,8 @@ cssSpriteMixin = `@mixin cssSprite( $spriteVals ) {
   background-image: url( #{ nth( $spriteVals, 3 ) } );
   background-position: nth( $spriteVals, 4 ) nth( $spriteVals, 5 );
   @media only screen and ( -webkit-min-device-pixel-ratio: 2 ), only screen and ( min-device-pixel-ratio: 2 ) {
-      background-image: url( #{ nth( $spriteVals, 6 ) } );
-      background-size: $bgiSizeW $bgiSizeH;
+    background-image: url( #{ nth( $spriteVals, 6 ) } );
+    background-size: $bgiSizeW $bgiSizeH;
   }
 }`
 
@@ -50,10 +50,10 @@ function generateScss() {
       scss += '$' + frame.name + 'Path: ' + '$' + frame.name + ';\n'
       scss += '$' + frame.name + 'URL: ' + '$' + frame.name + '$' + frame.name + 'Path + \'.png\';\n'
       scss += '$' + frame.name + 'x2URL: ' + '$' + frame.name + '$' + frame.name + 'Path + \'@2x.png\';\n\n'
-      scss += '$bgiSizeW: ' + frame.width + 'px;\n'
-      scss += '$bgiSizeH: ' + frame.height + 'px;\n'
+      scss += '$bgiSizeW: ' + Math.round(frame.width) + 'px;\n'
+      scss += '$bgiSizeH: ' + Math.round(frame.height) + 'px;\n'
       for (const layer of frame.children) {
-        scss += '$' + layer.name + ': ' + layer.width + 'px ' + layer.height + 'px $' + frame.name + 'URL ' + layer.x*-1 + 'px ' + layer.y*-1 + 'px $' + frame.name + '2xURL; \n'
+        scss += '$' + layer.name + ': ' + Math.round(layer.width) + 'px ' + Math.round(layer.height) + 'px $' + frame.name + 'URL ' + Math.round(layer.x)*-1 + 'px ' + Math.round(layer.y)*-1 + 'px $' + frame.name + '2xURL; \n'
         iconList += '$' + layer.name + ' ' + layer.name + ', '
       }
       scss += '$' + frame.name + 'List: ' + iconList
@@ -66,7 +66,6 @@ function generateScss() {
       scss += '    @include cssSprite( $'+ frame.name+'Class );\n'
       scss += '  }\n'
       scss += '}\n'
-
       figma.ui.postMessage(scss)
     }
   }
