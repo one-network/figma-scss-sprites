@@ -53,7 +53,7 @@ function generateScss() {
       scss += '$bgiSizeW: ' + Math.round(frame.width) + 'px;\n'
       scss += '$bgiSizeH: ' + Math.round(frame.height) + 'px;\n'
       for (const layer of frame.children) {
-        scss += '$' + layer.name + ': ' + Math.round(layer.width) + 'px ' + Math.round(layer.height) + 'px $' + frame.name + 'URL ' + Math.round(layer.x)*-1 + 'px ' + Math.round(layer.y)*-1 + 'px $' + frame.name + '2xURL; \n'
+        scss += '$' + layer.name + ': ' + Math.round(layer.width) + 'px ' + Math.round(layer.height) + 'px $' + frame.name + 'URL ' + Math.round(layer.x)*-1 + 'px ' + Math.round(layer.y)*-1 + 'px $' + frame.name + 'x2URL; \n'
         iconList += '$' + layer.name + ' ' + layer.name + ', '
       }
       scss += '$' + frame.name + 'List: ' + iconList
