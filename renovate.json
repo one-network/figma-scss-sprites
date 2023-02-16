@@ -15,7 +15,7 @@
     "DCebola-one-network"
   ],
   "baseBranches": [
-    "deploy/all"
+    "develop"
   ],
   "packageRules": [
     {
