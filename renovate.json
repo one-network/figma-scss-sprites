@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "assignees": [
+    "razor54",
+    "DCebola-one-network"
+  ],
+  "reviewers": [
+    "razor54",
+    "DCebola-one-network"
+  ],
+  "baseBranches": [
+    "deploy/all"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "groupName": "all dependencies",
+      "groupSlug": "all"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": false
+  }
+}
